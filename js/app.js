@@ -53,9 +53,11 @@ function mostrarEnHtml(resultados) {
     let lista = document.getElementById('resultadosVuelos');
     lista.innerHTML = ''; 
 
+    const totalImpuesto = 0.30 * 0.45 * 0.25 * 5;
+
     resultados.forEach(vuelo => {
         let li = document.createElement('li');
-        li.textContent = `ID: ${vuelo.id}, Destino: ${vuelo.destino}, Precio: ${vuelo.precio} USD`;
+        li.textContent = `ID: ${vuelo.id}, Destino: ${vuelo.destino}, Precio: ${vuelo.precio} USD || Valor total con impuestos: ${vuelo.precio + (vuelo.precio * totalImpuesto)} USD`;
         lista.appendChild(li);
     });
 }
