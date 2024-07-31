@@ -108,5 +108,40 @@ body main .container .card .contenido a:hover {
   background: #2fb4cc;
   border: 1px solid #ffffff;
 }
+body main .login form {
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid #2fb4cc;
+  border-radius: 6px;
+  justify-content: center;
+}
+body main .login form h1 {
+  font-size: 20px;
+  color: #2fb4cc;
+  text-align: center;
+  margin: 7px 0px;
+}
+body main .login form .login-name {
+  padding: 8px 20px;
+  font-size: 12px;
+  outline: none;
+  text-align: center;
+  margin-bottom: 7px;
+  border: 1px solid #2fb4cc;
+}
+body main .login form button {
+  padding: 8px 20px;
+  font-size: 12px;
+  outline: none;
+  text-align: center;
+  background-color: #2fb4cc;
+  border: none;
+  color: #ffffff;
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=style.css.map */
