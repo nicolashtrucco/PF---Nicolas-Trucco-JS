@@ -5,6 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const inputName = document.querySelector('input').value;
         localStorage.setItem('nombreUsuario', inputName);
-        window.location.href = './pages/index.html';
+        window.location.href = './pages/home.html';
     });
 });
