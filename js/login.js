@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .getElementById("loginForm")
       .addEventListener("submit", function (event) {
          event.preventDefault();
-         
-         const inputName = document.getElementById("inputName").value; 
-         localStorage.setItem("nombreUsuario", inputName); 
 
-         setTimeout(function() {
-            window.location.href = "./pages/home.html"; 
+         const inputName = document.getElementById("inputName").value;
+         localStorage.setItem("nombreUsuario", inputName);
+
+         setTimeout(function () {
+            window.location.href = "./pages/home.html";
          }, 4000);
       });
 });
