@@ -1,10 +1,24 @@
 /** @format */
 
-document.addEventListener("DOMContentLoaded", function () {
-   document.querySelector("form").addEventListener("submit", function (event) {
-      event.preventDefault();
-      const inputName = document.querySelector("input").value;
-      localStorage.setItem("nombreUsuario", inputName);
-      window.location.href = "./pages/home.html";
+document.getElementById("buttonOne").addEventListener("click", function () {
+   Swal.fire({
+      title: "Registrado Correctamente!",
+      text: "Serás redirigido en breve.",
+      icon: "success",
    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+   document
+      .getElementById("loginForm")
+      .addEventListener("submit", function (event) {
+         event.preventDefault();
+         
+         const inputName = document.getElementById("inputName").value; 
+         localStorage.setItem("nombreUsuario", inputName); 
+
+         setTimeout(function() {
+            window.location.href = "./pages/home.html"; 
+         }, 4000);
+      });
 });
