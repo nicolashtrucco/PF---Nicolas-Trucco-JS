@@ -4,7 +4,7 @@ fetch("/json/variableVuelos.json")
    .then((response) => response.json())
    .then((datos) => {
       vuelos = datos;
-      // console.log(vuelos);
+      mostrarEnHtml(vuelos);
    })
    .catch((error) => console.error("Error:", error));
 
@@ -20,7 +20,9 @@ function buscarVuelos() {
 
    if (precio) {
       let precioBuscado = parseFloat(busqueda);
-      resultados = vuelos.filter((vuelo) => vuelo.precio <= precioBuscado);
+      resultados = vuelos
+         .filter((vuelo) => vuelo.precio >= precioBuscado)
+         .sort((a, b) => a.precio - b.precio);
    } else {
       resultados = vuelos.filter((vuelo) =>
          vuelo.destino.toLowerCase().includes(busqueda)
@@ -34,17 +36,18 @@ function buscarVuelos() {
          text: "No se encontraron vuelos con esos parámetros.",
          icon: "error",
       });
+      mostrarEnHtml(vuelos);
    }
 }
 
-function mostrarEnHtml(resultados) {
+function mostrarEnHtml(vuelosAMostrar) {
    let lista = document.getElementById("resultadosVuelos");
    lista.innerHTML = "";
 
    const impuesto = 0.3 + 0.45 + 0.25;
    const template = document.getElementById("vueloTemplate");
 
-   resultados.forEach((vuelo) => {
+   vuelosAMostrar.forEach((vuelo) => {
       let clone = template.content.cloneNode(true);
       clone.querySelector(".destino").textContent = `${vuelo.destino}`;
       clone.querySelector(
@@ -65,9 +68,9 @@ function mostrarEnHtml(resultados) {
          Swal.fire({
             position: "top-end",
             icon: "success",
-            text: "Pasaje comprado con éxito!",
+            text: "Vuelo reservado con éxito. Se le enviarán las instrucciones a seguir por email.",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 3500,
          });
       });
    });
@@ -87,3 +90,5 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".containerPirncipal").prepend(bienvenidoTemplate);
    }
 });
+
+
